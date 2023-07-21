@@ -1,0 +1,227 @@
+openapi: 3.0.0
+info:
+  title: Landcor Data Service API
+  version: 1.0.0
+servers:
+  - url: https://api.landcor.com
+paths:
+  /FindByAddress:
+    get:
+      summary: Returns property data based on the address.
+      parameters:
+        - name: sUserID
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sPassword
+          in: query
+          required: true
+          schema:
+            type: string
+        # Additional parameters here...
+      responses:
+        '200':
+          description: A JSON or XML object containing the property data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PropertyData'
+  /FindByGeoRectangle:
+    get:
+      summary: Returns property data within a specified geographical rectangle.
+      parameters:
+        - name: sUserID
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sPassword
+          in: query
+          required: true
+          schema:
+            type: string
+        # Additional parameters here...
+      responses:
+        '200':
+          description: A JSON or XML object containing the property data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PropertyData'
+  /FindByLegalDescription:
+    get:
+      summary: Returns property data based on the legal description.
+      parameters:
+        - name: sUserID
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sPassword
+          in: query
+          required: true
+          schema:
+            type: string
+        # Additional parameters here...
+      responses:
+        '200':
+          description: A JSON or XML object containing the property data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PropertyData'
+  /FindByPID:
+    get:
+      summary: Returns property data based on the PID.
+      parameters:
+        - name: sUserID
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sPassword
+          in: query
+          required: true
+          schema:
+            type: string
+        # Additional parameters here...
+      responses:
+        '200':
+          description: A JSON or XML object containing the property data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PropertyData'
+  /GetFilterSalesExcelResultsDS:
+    get:
+      summary: Returns filtered sales results in Excel format.
+      parameters:
+        - name: sUserID
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sPassword
+          in: query
+          required: true
+          schema:
+            type: string
+        # Additional parameters here...
+      responses:
+        '200':
+          description: A JSON or XML object containing the sales data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SalesData'
+  /GetReport:
+    get:
+      summary: Returns a report for the specified property.
+      parameters:
+        - name: sUserID
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sPassword
+          in: query
+          required: true
+          schema:
+            type: string
+        # Additional parameters here...
+      responses:
+        '200':
+          description: A JSON or XML object containing the report data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ReportData'
+  /GetReportPdf:
+    get:
+      summary: Returns a report for the specified property in PDF format.
+      parameters:
+        - name: sUserID
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sPassword
+          in: query
+          required: true
+          schema:
+            type: string
+        # Additional parameters here...
+      responses:
+        '200':
+          description: A PDF file containing the report data
+          content:
+            application/pdf:
+  /GetTitleSearchResults:
+    get:
+      summary: Returns a Title Search given the ID supplied.
+      parameters:
+        - name: sUserID
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sPassword
+          in: query
+          required: true
+          schema:
+            type: string
+        # Additional parameters here...
+      responses:
+        '200':
+          description: A JSON or XML object containing the title search data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TitleSearchData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TitleSearchData'
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    PropertyData:
+      type: object
+      properties:
+        # Define the properties of the PropertyData object here...
+    SalesData:
+      type: object
+      properties:
+        # Define the properties of the SalesData object here...
+    ReportData:
+      type: object
+      properties:
+        # Define the properties of the ReportData object here...
+    TitleSearchData:
+      type: object
+      properties:
+        # Define the properties of the TitleSearchData object here...
+security:
+  - BearerAuth: []
